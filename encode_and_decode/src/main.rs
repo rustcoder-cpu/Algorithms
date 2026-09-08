@@ -2,8 +2,8 @@ struct Codec;
 
 impl Codec {
     pub fn encode(&self, strs: &[String]) -> String {
-        let mut result = String::new();
-        for s in strs {
+            let mut result = String::new();
+            for s in strs {
             result.push_str(&s.len().to_string());
             result.push('#');
             result.push_str(&s);
@@ -12,6 +12,7 @@ impl Codec {
     }
 
     pub fn decode(&self, s: &String) -> Vec<String> {
+        // make code more beginner friendly
         let bytes = s.as_str().as_bytes();
         let mut result = Vec::new();
         let mut i = 0;
