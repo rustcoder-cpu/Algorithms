@@ -19,10 +19,19 @@ impl Codec {
             let length: usize = remaining[..hash_index].parse().unwrap();
             remaining = &remaining[hash_index + 1..];
             let word = &remaining[..length];
-            result.push(word.to_string());
+            result.push(word);
             remaining = &remaining[length..];
         }
 
         result
     }
+}
+
+fn main() {
+    let codec = Codec;
+    let strs = vec!["hello", "world"];
+    let encoded = codec.encode(&strs);
+    println!("Encoded: {}", encoded);
+    let decoded = codec.decode(&encoded);
+    println!("Decoded: {:?}", decoded);
 }
