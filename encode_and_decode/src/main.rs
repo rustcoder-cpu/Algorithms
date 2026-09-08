@@ -20,7 +20,8 @@ impl Codec {
             while bytes[j] != b'#' {
                 j += 1;
             }
-            let len: usize = std::str::from_utf8(&bytes[i..j]).unwrap().parse().unwrap();
+            let len_str = std::str::from_utf8(&bytes[i..j]).unwrap();
+            let len: usize = len_str.parse().unwrap();
             j += 1;
             let end = j + len;
             result.push(
