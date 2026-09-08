@@ -9,8 +9,7 @@ impl Codec {
             result.push_str(&s);
         }
         result
-    }
-
+    } 
     pub fn decode(&self, s: &str) -> Vec<&str> {
         let mut result = Vec::new();
         let mut remaining = s.as_str();
