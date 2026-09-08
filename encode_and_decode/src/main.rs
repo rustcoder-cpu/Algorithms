@@ -1,7 +1,7 @@
 struct Codec;
 
 impl Codec {
-    pub fn encode(&self, strs: Vec<String>) -> String {
+    pub fn encode(&self, strs: &[String]) -> String {
         let mut result = String::new();
         for s in strs {
             result.push_str(&s.len().to_string());
@@ -11,8 +11,8 @@ impl Codec {
         result
     }
 
-    pub fn decode(&self, s: String) -> Vec<String> {
-        let bytes = s.as_bytes();
+    pub fn decode(&self, s: &String) -> Vec<String> {
+        let bytes = s.as_str().as_bytes();
         let mut result = Vec::new();
         let mut i = 0;
         while i < bytes.len() {
@@ -20,10 +20,7 @@ impl Codec {
             while bytes[j] != b'#' {
                 j += 1;
             }
-            let len: usize = std::str::from_utf8(&bytes[i..j])
-                .unwrap()
-                .parse()
-                .unwrap();
+            let len: usize = std::str::from_utf8(&bytes[i..j]).unwrap().parse().unwrap();
             j += 1;
             let end = j + len;
             result.push(
