@@ -12,23 +12,18 @@ impl Codec {
     }
 
     pub fn decode(&self, s: &String) -> Vec<String> {
-        let bytes = s.as_str().as_bytes();
         let mut result = Vec::new();
-        let mut i = 0;
-        while i < bytes.len() {
-            let mut j = i;
-            while bytes[j] != b'#' {
-                j += 1;
-            }
-            let len_str = std::str::from_utf8(&bytes[i..j]).unwrap();
-            let len: usize = len_str.parse().unwrap();
-            j += 1;
-            let end = j + len;
-            result.push(
-                String::from_utf8(bytes[j..end].to_vec()).unwrap()
-            );
-            i = end;
+        let mut remaining = s.as_str();
+
+        while !remaining.is_empty() {
+            let hash_index = remaining.find('#').unwrap();
+            let length: usize = remaining[..hash_index].parse().unwrap();
+            remaining = &remaining[hash_index + 1..];
+            let word = &remaining[..length];
+            result.push(word.to_string());
+            remaining = &remaining[length..];
         }
+
         result
     }
 }
