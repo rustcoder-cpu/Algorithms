@@ -12,7 +12,6 @@ impl Codec {
     }
 
     pub fn decode(&self, s: &String) -> Vec<String> {
-        // make code more beginner friendly
         let bytes = s.as_str().as_bytes();
         let mut result = Vec::new();
         let mut i = 0;
@@ -30,5 +29,7 @@ impl Codec {
             i = end;
         }
         result
+
+
     }
 }
