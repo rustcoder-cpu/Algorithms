@@ -1,7 +1,7 @@
 struct Codec;
 
 impl Codec {
-    pub fn encode(&self, strs: &[String]) -> String {
+    pub fn encode(&self, strs: &[&str]) -> String {
             let mut result = String::new();
             for s in strs {
             result.push_str(&s.len().to_string());
@@ -11,10 +11,9 @@ impl Codec {
         result
     }
 
-    pub fn decode(&self, s: &String) -> Vec<String> {
+    pub fn decode(&self, s: &str) -> Vec<&str> {
         let mut result = Vec::new();
         let mut remaining = s.as_str();
-
         while !remaining.is_empty() {
             let hash_index = remaining.find('#').unwrap();
             let length: usize = remaining[..hash_index].parse().unwrap();
