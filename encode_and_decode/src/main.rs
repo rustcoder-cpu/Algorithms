@@ -29,7 +29,5 @@ impl Codec {
             i = end;
         }
         result
-
-
     }
 }
