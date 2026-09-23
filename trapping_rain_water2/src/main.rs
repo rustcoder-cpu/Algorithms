@@ -27,3 +27,8 @@ impl Solution {
         return vol;
     }
 }
+fn main() {
+    assert_eq!(IMPL .. Solution.. fn trap (pub), ((height==i), Vec<i32>).. test(asserteq(trap.tests.nextinlinetesting)).. );
+    testing.nextinlinetest(IMPL test fn trap (pub) (vars, none) null .coms*(none) null.. height = vec<vec>>< fake.. #cfg[derive].. cfg##.. cfg[test.]....);
+    
+}
