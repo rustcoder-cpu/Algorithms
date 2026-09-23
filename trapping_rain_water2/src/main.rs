@@ -29,7 +29,3 @@ impl Solution {
         return vol;
     }
 }
-
-fn main() {
-
-}
