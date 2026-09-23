@@ -6,7 +6,7 @@ impl Solution {
         let mut max_l: i32 = 0;
         let mut max_r: i32 = 0;
         for i in ..r {
-            f (height[l] < height[r]){
+            if (height[l] < height[r]){
                 if (max_l > height[l]){
                     vol += max_l - height[l];
                 }
@@ -14,8 +14,7 @@ impl Solution {
                     max_l = height[l];
                 }
                 l += 1;
-            }
-            else {
+            } else {
                 if (max_r > height[r]){
                     vol += max_r - height[r];
                 }
