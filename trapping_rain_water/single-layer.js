@@ -14,4 +14,4 @@ function trap(height) {
     }
     return waterFound;
 }
-console.log(trap([0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 2, 1]));
+console.log(trap([0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1]));
