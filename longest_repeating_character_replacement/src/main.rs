@@ -1,4 +1,4 @@
-// Algorithm: Sliding Window / Two Pointers
+//            A L G O R I T H M
 //
 // 1. Keep a window between `i` and `j`.
 // 2. Move `j` forward to expand the window.
